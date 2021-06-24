@@ -1,0 +1,96 @@
+{
+  "version": 2,
+  "timeout": "3000ms",
+  "cache_ttl": "300s",
+  "host": [
+    "http://host.docker.internal:8081"
+  ],
+  "extra_config": {
+    "github_com/devopsfaith/krakend-metrics": {
+      "collection_time": "30s",
+      "listen_address": ":8090"
+    },
+    "github_com/letgoapp/krakend-influx": {
+      "address": "http://influxdb:8086",
+      "ttl": "25s"
+    },
+    "github_com/devopsfaith/krakend-gologging": {
+      "level": "DEBUG",
+      "prefix": "[KRAKEND]",
+      "syslog": false,
+      "stdout": true
+    },
+    "github_com/devopsfaith/krakend-opencensus": {
+      "sample_rate": 100,
+      "reporting_period": 1,
+      "exporters": {
+        "jaeger": {
+          "endpoint": "http://jaeger:14268/api/traces",
+          "service_name": "krakend"
+        }
+      }
+    },
+    "github_com/devopsfaith/krakend-cors": {
+      "allow_origins": [
+        "http://localhost:8080",
+        "http://localhost:3000",
+        "http://192.168.99.100:3000"
+      ],
+      "allow_methods": [
+        "POST",
+        "GET"
+      ],
+      "allow_headers": [
+        "Origin",
+        "Authorization",
+        "Content-Type"
+      ],
+      "expose_headers": [
+        "Content-Length"
+      ],
+      "max_age": "12h"
+    }
+  },
+  "endpoints": [
+    {
+      "endpoint": "/company",
+      "backend": [
+        {
+          "url_pattern": "/company",
+          "method": "GET",
+          "is_collection": true
+        }
+      ]
+    },
+    {
+      "endpoint": "/company/{id}",
+      "backend": [
+        {
+          "url_pattern": "/company/{id}",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "endpoint": "/employee/{id}",
+      "backend": [
+        {
+          "url_pattern": "/employee/{id}",
+          "encoding": "json",
+          "method": "GET"
+        },
+        {
+          "url_pattern": "/company/{resp0_company_id}",
+          "encoding": "json",
+          "method": "GET",
+          "group": "company"
+        }
+      ],
+      "extra_config": {
+        "github.com/devopsfaith/krakend/proxy": {
+          "sequential": true
+        }
+      }
+    }
+  ]
+}

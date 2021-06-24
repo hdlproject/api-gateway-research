@@ -1,0 +1,49 @@
+version: '3.3'
+
+services:
+  krakend_ce:
+    image: devopsfaith/krakend:1.4
+    container_name: "krakend_ce"
+    ports:
+      - 1234:1234
+      - 8080:8080
+      - 8090:8090
+    networks:
+      - krakend
+    volumes:
+      - ./krakend/krakend:/etc/krakend/
+
+#  influxdb:
+#    image: influxdb:1.8
+#    environment:
+#      - INFLUXDB_DB=krakend
+#      - INFLUXDB_USER=krakend
+#      - INFLUXDB_USER_PASSWORD=krakend123
+#      - INFLUXDB_ADMIN_USER=admin
+#      - INFLUXDB_ADMIN_PASSWORD=supersecretpassword
+#    ports:
+#      - 8086:8086
+#    networks:
+#      - krakend
+#
+#  grafana:
+#    image: grafana/grafana:8.0.3
+#    ports:
+#      - 3003:3000
+#    networks:
+#      - krakend
+#    volumes:
+#      - ./krakend/grafana/datasources:/etc/grafana/provisioning/datasources
+#      - ./krakend/grafana/dashboards:/etc/grafana/provisioning/dashboards
+#      - ./krakend/grafana/krakend:/var/lib/grafana/dashboards/krakend
+#
+#  jaeger:
+#    image: jaegertracing/all-in-one:1.23
+#    ports:
+#      - 16686:16686
+#      - 14268:14268
+#    networks:
+#      - krakend
+
+networks:
+  krakend:
