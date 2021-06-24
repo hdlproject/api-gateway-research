@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "first_name": "SpongeBob",
+    "last_name": "SquarePants",
+    "address": "Pineapple House, 124 Conch Street",
+    "age": 23,
+    "company_id": 1
+  },
+  {
+    "id": 2,
+    "first_name": "Patrick",
+    "last_name": "Star",
+    "address": "Patrick Star's House, 120 Conch Street",
+    "age": 23,
+    "company_id": 1
+  },
+  {
+    "id": 3,
+    "first_name": "Squidward",
+    "last_name": "Tentacles",
+    "address": "Squidward Tentacles's House, 122 Conch Street",
+    "age": 28,
+    "company_id": 1
+  },
+  {
+    "id": 4,
+    "first_name": "Sheldon",
+    "last_name": "J. Plankton",
+    "address": "Chum Bucket",
+    "age": 30,
+    "company_id": 2
+  },
+  {
+    "id": 5,
+    "first_name": "Karen",
+    "last_name": "Plankton",
+    "address": "Chum Bucket",
+    "age": 28,
+    "company_id": 2
+  }
+]

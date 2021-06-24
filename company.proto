@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+option go_package = "github/hdlproject/api-gateway/main";
+
+package company;
+
+message Company {
+  int32 id = 1;
+  string name = 2;
+  string address = 3;
+  int32 number_of_employees = 4;
+  string industry = 5;
+  repeated Product products = 6;
+}
+
+message Product {
+  int32 id = 1;
+  string name = 2;
+  string type = 3;
+}
+
+message GetCompanyRequest {
+  int32 id = 1;
+}
+
+message GetCompanyResponse {
+  Company company = 1;
+}
+
+message GetCompaniesRequest {}
+
+message GetCompaniesResponse {
+  repeated Company companies = 1;
+}
+
+service CompanyService {
+  rpc Get(GetCompanyRequest) returns (GetCompanyResponse) {}
+  rpc GetAll(GetCompaniesRequest) returns (GetCompaniesResponse) {}
+}

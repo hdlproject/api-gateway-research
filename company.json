@@ -1,0 +1,40 @@
+[
+  {
+    "id": 1,
+    "name": "Krusty Krab",
+    "address": "Bikini Bottom",
+    "number_of_employees": 3,
+    "industry": "food",
+    "products": [
+      {
+        "id": 1,
+        "name": "Krabby Pattie",
+        "type": "sandwich"
+      },
+      {
+        "id": 2,
+        "name": "Kelp Shake",
+        "type": "beverage"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Chum Bucket",
+    "address": "Bikini Bottom",
+    "number_of_employees": 2,
+    "industry": "food",
+    "products": [
+      {
+        "id": 3,
+        "name": "Chum Burger",
+        "type": "sandwich"
+      },
+      {
+        "id": 4,
+        "name": "Chum Shake",
+        "type": "beverage"
+      }
+    ]
+  }
+]
