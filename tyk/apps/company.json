@@ -1,0 +1,26 @@
+{
+  "name": "Company API",
+  "slug": "company-api",
+  "api_id": "523a48e6-2d7d-4663-b61c-5be5f9a63465",
+  "org_id": "523a48e6-2d7d-4663-b61c-5be5f9a63465",
+  "use_keyless": true,
+  "definition": {
+    "location": "header",
+    "key": "x-api-version"
+  },
+  "version_data": {
+    "not_versioned": true,
+    "versions": {
+      "Default": {
+        "name": "Default",
+        "use_extended_paths": true
+      }
+    }
+  },
+  "proxy": {
+    "listen_path": "/",
+    "target_url": "h2c://host.docker.internal:8082",
+    "strip_listen_path": true
+  },
+  "active": true
+}

@@ -1,0 +1,25 @@
+{
+  "name": "Employee API",
+  "slug": "employee-api",
+  "api_id": "cf8d87c7-2705-4592-9c6a-1c11de8f699c",
+  "org_id": "cf8d87c7-2705-4592-9c6a-1c11de8f699c",
+  "use_keyless": true,
+  "definition": {
+    "location": "header",
+    "key": "x-api-version"
+  },
+  "version_data": {
+    "not_versioned": true,
+    "versions": {
+      "Default": {
+        "name": "Default",
+        "use_extended_paths": true
+      }
+    }
+  },
+  "proxy": {
+    "listen_path": "/employee",
+    "target_url": "http://host.docker.internal:8081"
+  },
+  "active": true
+}
